@@ -17,6 +17,7 @@
 # include <mlx.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 enum e_keys
 {
@@ -39,6 +40,8 @@ typedef	struct s_map
 	int		columns;
 }	t_map;
 
-int	filename_check(char *file);
+int		filename_check(char *file);
+int		get_dims(t_map *map);
+void	fill_map(t_map *map, int fd);
 
 # endif

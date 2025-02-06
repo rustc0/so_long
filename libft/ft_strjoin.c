@@ -27,7 +27,7 @@ static char	*ft_strcpy(char *dest, const char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin2(char const *s1, char const *s2)
 {
 	size_t	s1len;
 	size_t	s2len;
