@@ -44,13 +44,13 @@ void	*ft_memset(void *dest, int value, size_t num);
 char	*ft_strdup(const char *str);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-char	*ft_strchr(const char *str, int c);
+char	*ft_strchrlib(const char *str, int c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strrchr(const char *str, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t num);
 char	*ft_strnstr(const char *hs, const char *ndl, size_t len);
-int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
+int		ft_atoi(const char *str);
 
 // Additioonal functions : -----------------------------------------------------
 

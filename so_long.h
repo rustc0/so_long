@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef SO_LONG_H
+#ifndef SO_LONG_H
 # define SO_LONG_H
 
 # include <stdio.h>
@@ -32,7 +32,7 @@ enum e_keys
 	D_KEY = 100
 };
 
-typedef	struct s_map
+typedef struct s_map
 {
 	char	*name;
 	char	**map;
@@ -40,8 +40,10 @@ typedef	struct s_map
 	int		columns;
 }	t_map;
 
-int		filename_check(char *file);
+int		filename_check(t_map *map, char *file);
 int		get_dims(t_map *map);
-void	fill_map(t_map *map, int fd);
+int	fill_map(t_map *map, int fd);
+void	init_map(t_map *map, char *fn);
+int		parse_map(t_map *map, char *fn);
 
-# endif
+#endif

@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int close_window(int keycode, void *param)
+int	close_window(int keycode, void *param)
 {
 	printf("keycode : %d\n", keycode);
 	if (keycode == 65307)
@@ -20,17 +20,20 @@ int close_window(int keycode, void *param)
 	return (0);
 }
 
-int main(int ac, char *av[])
+int	main(int ac, char *av[])
 {
-	if (ac == 2 && (filename_check(av[1])))
-	{
-		void *mlx;
-		void *win;
+	void	*mlx;
+	void	*win;
+	t_map	*map;
 
+	map = malloc(sizeof(t_map));
+	if (!map)
+		return(1);
+	if (ac == 2 && parse_map(map, av[1]))
+	{
 		mlx = mlx_init();
 		win = mlx_new_window(mlx, 1200, 700, "basic win");
 		mlx_key_hook(win, close_window, mlx);
-
 		mlx_loop(mlx);
 	}
 	return (0);
