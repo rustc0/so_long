@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:45 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/13 17:35:28 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:20:34 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ int		parse_map(t_map *map, char *filename);
 int		get_dims(t_map *map);
 void	ft_cleanmap(t_map *map);
 int		elements_check(t_map *map);
+int		ismap_closed(t_map *map);
+int 	check_map(t_map *map);
 
 #endif

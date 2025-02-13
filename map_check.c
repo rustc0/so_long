@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 08:44:55 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/13 17:42:58 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:44:28 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	elements_check(t_map *map)
 			if (c != '0' && c != '1' && c != 'P' 
 				&& c != 'C' && c != 'E')
 			{
-				ft_putstr_fd("wrong element!", 2);
+				ft_putstr_fd("wrong element detected!", 2);
 				ft_cleanmap(map);
 				return (0);
 			}
@@ -56,16 +56,33 @@ int	elements_check(t_map *map)
 
 int	ismap_closed(t_map *map)
 {
-	int	i;
 	int j;
 
 	j = 0;
-	while(map->map[j])
+	while(map->map[0][j])
 	{
-		i = 0;
-		while(map->map[j][i])
-		{
-			
-		}
+		if (map->map[0][j++] != '1')
+			return (0);
 	}
+	j = 0;
+	while(map->map[map->lines - 1][j])
+	{
+		if (map->map[0][j++] != '1')
+			return (0);
+	}
+	j = 0;
+	while(j < (map->lines - 1))
+	{
+		if (map->map[j][0] != '1' || map->map[j][map->columns - 1] != '1' )
+		{
+			ft_putstr_fd("map is not surrounded by walls!", 2);
+			return (0);
+		}
+		j++;
+	}
+	return (1);
+}
+int check_map(t_map *map)
+{
+	return (ismap_closed(map) && elements_check(map));
 }

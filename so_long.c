@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:17 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/13 17:16:23 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:22:09 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	main(int ac, char *av[])
 		return(1);
 	if (ac == 2 && parse_map(map, av[1]))
 	{
+		if (!check_map(map))
+			printf("map aint closed with walls!\n");
 		printf("col :%d\n", map->columns);
 		printf("rows :%d\n", map->lines);
 		mlx = mlx_init();
