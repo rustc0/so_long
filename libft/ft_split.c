@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:28:43 by rahmoham          #+#    #+#             */
-/*   Updated: 2024/11/11 17:10:44 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:14:16 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ char	**ft_split(char const *s, char c)
 	size_t	wlen;
 
 	i = 0;
-	if (!s)
-		return (NULL);
-	arr = (char **)ft_calloc((ft_cw((char *)s, c) + 1), sizeof(char *));
+	arr = (char **)malloc((ft_cw((char *)s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
 	while (*s)
@@ -74,6 +72,7 @@ char	**ft_split(char const *s, char c)
 			return (ft_clean(arr, i - 1));
 		s += wlen;
 	}
+	arr[i] = 0;
 	return (arr);
 }
 

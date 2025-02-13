@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmoham <rahmoham@student.42.fr>          #+#  +:+       +#+        */
+/*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-01 20:09:45 by rahmoham          #+#    #+#             */
-/*   Updated: 2025-02-01 20:09:45 by rahmoham         ###   ########.fr       */
+/*   Created: 2025/02/01 20:09:45 by rahmoham          #+#    #+#             */
+/*   Updated: 2025/02/13 17:35:28 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,22 @@ enum e_keys
 typedef struct s_map
 {
 	char	*name;
+	int		fd;
 	char	**map;
 	int		lines;
 	int		columns;
 }	t_map;
 
-int		filename_check(t_map *map, char *file);
+// int		filename_check(t_map *map, char *file);
+// int		get_dims(t_map *map);
+// int	fill_map(t_map *map, int fd);
+// void	init_map(t_map *map, char *fn);
+// int		parse_map(t_map *map, char *fn);
+int 	open_map(t_map *map, char *filename);
+int		load_map(t_map *map);
+int		parse_map(t_map *map, char *filename);
 int		get_dims(t_map *map);
-int	fill_map(t_map *map, int fd);
-void	init_map(t_map *map, char *fn);
-int		parse_map(t_map *map, char *fn);
+void	ft_cleanmap(t_map *map);
+int		elements_check(t_map *map);
 
 #endif

@@ -1,9 +1,9 @@
 
 NAME = exec
-SRC = so_long.c parse_map.c
+SRC = so_long.c map_parse.c map_check.c
 CC = cc -Wall -Werror -Wextra
 LIBS = -lmlx -lX11 -lXext -lft
-LIBFT = libft/libft.a
+LIBFT = libft
 GNL = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 all: $(NAME)

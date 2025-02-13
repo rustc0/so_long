@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 21:52:16 by rahmoham          #+#    #+#             */
-/*   Updated: 2024/10/26 22:50:22 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/09 14:46:09 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,32 @@ static char	*ft_strcpy(char *dest, const char *src)
 	return (dest);
 }
 
-char	*ft_strjoin2(char const *s1, char const *s2)
+char	*ft_strjoin2(char *buff, char *tmp)
 {
-	size_t	s1len;
-	size_t	s2len;
-	char	*buff;
+	char	*str;
+	size_t	buff_len;
+	size_t	tmp_len;
 
-	if (!s1 || !s2)
+	if (tmp == NULL)
 		return (NULL);
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	buff = (char *)(malloc(s1len + s2len + 1));
 	if (!buff)
+	{
+		buff = (char *)malloc(1);
+		if (!buff)
+			return (NULL);
+		buff[0] = '\0';
+	}
+	buff_len = ft_strlen(buff);
+	tmp_len = ft_strlen(tmp);
+	str = malloc(buff_len + tmp_len + 1);
+	if (str == NULL)
+	{
+		free(buff);
 		return (NULL);
-	ft_strcpy(buff, s1);
-	ft_strcpy(buff + s1len, s2);
-	return (buff);
+	}
+	ft_strcpy(str, buff);
+	ft_strcpy(str + buff_len, tmp);
+	return (str);
 }
 
 // int main()

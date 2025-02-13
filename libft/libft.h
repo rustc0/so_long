@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:19:15 by rahmoham          #+#    #+#             */
-/*   Updated: 2024/11/10 20:59:53 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/09 17:50:37 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <ctype.h>
 # include <limits.h>
 
-typedef struct s_list
+typedef struct s_list // struct for linked lists
 {
 	void			*content;
 	struct s_list	*next;
@@ -55,7 +55,7 @@ int		ft_atoi(const char *str);
 // Additioonal functions : -----------------------------------------------------
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin2(char const *s1, char const *s2);
+char	*ft_strjoin2(char *buff, char *tmp);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
