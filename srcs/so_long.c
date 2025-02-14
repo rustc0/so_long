@@ -6,11 +6,11 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:17 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/13 22:22:09 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/14 23:16:59 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	close_window(int keycode, void *param)
 {
@@ -29,12 +29,8 @@ int	main(int ac, char *av[])
 	map = malloc(sizeof(t_map));
 	if (!map)
 		return(1);
-	if (ac == 2 && parse_map(map, av[1]))
+	if (ac == 2 && parse_map(map, av[1]) && check_map(map))
 	{
-		if (!check_map(map))
-			printf("map aint closed with walls!\n");
-		printf("col :%d\n", map->columns);
-		printf("rows :%d\n", map->lines);
 		mlx = mlx_init();
 		win = mlx_new_window(mlx, 1200, 700, "basic win");
 		mlx_key_hook(win, close_window, mlx);

@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:45 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/13 22:20:34 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:04:44 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include "libft/libft.h"
+# include "get_next_line/get_next_line.h"
 
 enum e_keys
 {
@@ -41,11 +43,6 @@ typedef struct s_map
 	int		columns;
 }	t_map;
 
-// int		filename_check(t_map *map, char *file);
-// int		get_dims(t_map *map);
-// int	fill_map(t_map *map, int fd);
-// void	init_map(t_map *map, char *fn);
-// int		parse_map(t_map *map, char *fn);
 int 	open_map(t_map *map, char *filename);
 int		load_map(t_map *map);
 int		parse_map(t_map *map, char *filename);

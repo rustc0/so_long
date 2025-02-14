@@ -6,13 +6,11 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 08:44:55 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/13 22:44:28 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/14 23:16:43 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include "libft/libft.h"
-#include "get_next_line/get_next_line.h"
+#include "../so_long.h"
 
 void	ft_cleanmap(t_map *map)
 {
@@ -25,6 +23,28 @@ void	ft_cleanmap(t_map *map)
 		i++;
 	}
 	free(map->map);
+}
+
+int	elem_count(t_map *map)
+{
+	int	(i), (j), (e), (c), (p);
+	(i = 0), (e = 0), (c = 0), (p = 0);
+	while (i < map->lines)
+	{
+		j = 0;
+		while (j < map->columns)
+		{
+			if (map->map[i][j] == 'E')
+				e++;
+			else if (map->map[i][j] == 'C')
+				c++;
+			else if (map->map[i][j] == 'P')
+				p++;
+			j++;
+		}
+		i++;
+	}
+	return (e == 1 && c >= 1 && p == 1);
 }
 
 int	elements_check(t_map *map)
@@ -74,15 +94,13 @@ int	ismap_closed(t_map *map)
 	while(j < (map->lines - 1))
 	{
 		if (map->map[j][0] != '1' || map->map[j][map->columns - 1] != '1' )
-		{
-			ft_putstr_fd("map is not surrounded by walls!", 2);
 			return (0);
-		}
 		j++;
 	}
 	return (1);
 }
 int check_map(t_map *map)
 {
-	return (ismap_closed(map) && elements_check(map));
+	return (ismap_closed(map) && elements_check(map)
+			&& elem_count(map));
 }

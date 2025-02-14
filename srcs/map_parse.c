@@ -6,13 +6,11 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:08:16 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/13 17:27:50 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/14 23:16:54 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include "libft/libft.h"
-#include "get_next_line/get_next_line.h"
+#include "../so_long.h"
 
 int open_map(t_map *map, char *filename)
 {    
