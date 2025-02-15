@@ -27,8 +27,11 @@ void	ft_cleanmap(t_map *map)
 
 int	elem_count(t_map *map)
 {
-	int	(i), (j), (e), (c), (p);
-	(i = 0), (e = 0), (c = 0), (p = 0);
+	int (i), (j), (e), (c), (p);
+	i = 0;
+	e = 0;
+	c = 0;
+	p = 0;
 	while (i < map->lines)
 	{
 		j = 0;
@@ -60,7 +63,7 @@ int	elements_check(t_map *map)
 		while (map->map[j][i])
 		{
 			c = map->map[j][i];
-			if (c != '0' && c != '1' && c != 'P' 
+			if (c != '0' && c != '1' && c != 'P'
 				&& c != 'C' && c != 'E')
 			{
 				ft_putstr_fd("wrong element detected!", 2);
@@ -76,22 +79,22 @@ int	elements_check(t_map *map)
 
 int	ismap_closed(t_map *map)
 {
-	int j;
+	int	j;
 
 	j = 0;
-	while(map->map[0][j])
+	while (map->map[0][j])
 	{
 		if (map->map[0][j++] != '1')
 			return (0);
 	}
 	j = 0;
-	while(map->map[map->lines - 1][j])
+	while (map->map[map->lines - 1][j])
 	{
 		if (map->map[0][j++] != '1')
 			return (0);
 	}
 	j = 0;
-	while(j < (map->lines - 1))
+	while (j < (map->lines - 1))
 	{
 		if (map->map[j][0] != '1' || map->map[j][map->columns - 1] != '1' )
 			return (0);
@@ -99,8 +102,9 @@ int	ismap_closed(t_map *map)
 	}
 	return (1);
 }
-int check_map(t_map *map)
+
+int	check_map(t_map *map)
 {
 	return (ismap_closed(map) && elements_check(map)
-			&& elem_count(map));
+		&& elem_count(map));
 }

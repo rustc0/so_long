@@ -43,13 +43,13 @@ typedef struct s_map
 	int		columns;
 }	t_map;
 
-int 	open_map(t_map *map, char *filename);
+int		open_map(t_map *map, char *filename);
 int		load_map(t_map *map);
 int		parse_map(t_map *map, char *filename);
 int		get_dims(t_map *map);
 void	ft_cleanmap(t_map *map);
 int		elements_check(t_map *map);
 int		ismap_closed(t_map *map);
-int 	check_map(t_map *map);
+int		check_map(t_map *map);
 
 #endif

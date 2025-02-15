@@ -1,6 +1,6 @@
 
 NAME = exec
-SRC = so_long.c map_parse.c map_check.c
+SRC = srcs/so_long.c srcs/map_parse.c srcs/map_check.c srcs/flood_fill.c
 CC = cc -Wall -Werror -Wextra
 LIBS = -lmlx -lX11 -lXext -lft
 LIBFT = libft

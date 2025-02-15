@@ -41,22 +41,22 @@ char	**create_tmp(t_map *map)
 	return (tmp);
 }
 
-
-int flood_map(t_map *map)
+int	flood_map(t_map *map)
 {
-    char    **tmp_map;
-    int (x), (y);
+	char	**tmp_map;
 
-    y = 0;
-    while(y < map->lines)
-    {
-        x = 0;
-        while (x < map->columns && !(map->map[y][x] == 'P'))
-            x++;
-        if (map->map[y][x] == 'P')
-        break ;
-        y++;
-    }
-    tmp_map = create_tmp(map);
-    flood_fill(map, y, x, tmp_map);
+	int (x), (y);
+	y = 0;
+	while (y < map->lines)
+	{
+		x = 0;
+		while (x < map->columns && !(map->map[y][x] == 'P'))
+			x++;
+		if (map->map[y][x] == 'P')
+			break ;
+		y++;
+	}
+	tmp_map = create_tmp(map);
+	flood_fill(map, y, x, tmp_map);
+	return (1);
 }

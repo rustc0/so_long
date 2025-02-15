@@ -28,7 +28,7 @@ int	main(int ac, char *av[])
 
 	map = malloc(sizeof(t_map));
 	if (!map)
-		return(1);
+		return (1);
 	if (ac == 2 && parse_map(map, av[1]) && check_map(map))
 	{
 		mlx = mlx_init();

@@ -12,8 +12,8 @@
 
 #include "../so_long.h"
 
-int open_map(t_map *map, char *filename)
-{    
+int	open_map(t_map *map, char *filename)
+{
 	if (ft_strlen(filename) < 5
 		||filename[0] == '.'
 		|| ft_strncmp(&filename[(ft_strlen(filename) - 4)], ".ber", (size_t)4))
@@ -36,7 +36,7 @@ int	load_map(t_map *map)
 	char	*full_line;
 	char	*line;
 	char	*tmp_line;
-	
+
 	full_line = NULL;
 	line = get_next_line(map->fd);
 	if (!line)
@@ -73,6 +73,7 @@ int	parse_map(t_map *map, char *filename)
 	}
 	return (1);
 }
+
 int	get_dims(t_map *map)
 {
 	int	i;

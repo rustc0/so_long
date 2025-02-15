@@ -37,7 +37,7 @@ static size_t	ft_cw(char *str, char d)
 	return (count);
 }
 
-static void	*ft_clean(char **arr, int allocated)
+void	*ft_clean(char **arr, int allocated)
 {
 	int	j;
 
