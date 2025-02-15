@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 22:07:57 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/14 23:17:08 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/15 10:04:49 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,28 @@ char	**create_tmp(t_map *map)
 	return (tmp);
 }
 
+int	check_rem(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if ((map[i][j] == 'C' || map[i][j] == 'E'))
+				break ;
+			j++;
+		}
+		if (map[i][j] == 'C' || map[i][j] == 'E')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	flood_map(t_map *map)
 {
 	char	**tmp_map;
@@ -58,5 +80,11 @@ int	flood_map(t_map *map)
 	}
 	tmp_map = create_tmp(map);
 	flood_fill(map, y, x, tmp_map);
+	if (!check_rem(tmp_map))
+	{
+		ft_putstr_fd("this map cant be beaten\n", 2);
+		ft_cleanmap(map);
+		return (0);
+	}
 	return (1);
 }

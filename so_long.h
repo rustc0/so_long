@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:45 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/14 22:04:44 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/15 09:56:10 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void	ft_cleanmap(t_map *map);
 int		elements_check(t_map *map);
 int		ismap_closed(t_map *map);
 int		check_map(t_map *map);
+int		flood_map(t_map *map);
 
 #endif

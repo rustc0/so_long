@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:17 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/14 23:16:59 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/15 10:02:14 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	main(int ac, char *av[])
 		return (1);
 	if (ac == 2 && parse_map(map, av[1]) && check_map(map))
 	{
+		if (!flood_map(map))
+			return (1);
 		mlx = mlx_init();
 		win = mlx_new_window(mlx, 1200, 700, "basic win");
 		mlx_key_hook(win, close_window, mlx);
