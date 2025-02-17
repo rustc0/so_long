@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:08:16 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/14 23:16:54 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:43:59 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,15 @@ int	load_map(t_map *map)
 		tmp_line = full_line;
 		full_line = ft_strjoin2(full_line, line);
 		free(line);
-		if (tmp_line)
-			free(tmp_line);
+		// if (tmp_line)
+		free(tmp_line);
 		line = get_next_line(map->fd);
 	}
 	if (!full_line)
 		return (0);
 	map->map = ft_split(full_line, '\n');
 	free(full_line);
+	close (map->fd);
 	return (1);
 }
 
@@ -63,8 +64,8 @@ int	parse_map(t_map *map, char *filename)
 		return (0);
 	if (!load_map(map))
 	{
+		ft_putstr_fd("cant read the map file!\n", 2);
 		return (0);
-		ft_putstr_fd("Error reading the map!\n", 2);
 	}
 	if (!get_dims(map))
 	{

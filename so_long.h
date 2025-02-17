@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:45 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/15 09:56:10 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:46:28 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <mlx.h>
+# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -47,7 +48,7 @@ int		open_map(t_map *map, char *filename);
 int		load_map(t_map *map);
 int		parse_map(t_map *map, char *filename);
 int		get_dims(t_map *map);
-void	ft_cleanmap(t_map *map);
+void	ft_cleanmap(char **map);
 int		elements_check(t_map *map);
 int		ismap_closed(t_map *map);
 int		check_map(t_map *map);

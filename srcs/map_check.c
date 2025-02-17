@@ -6,23 +6,25 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 08:44:55 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/14 23:16:43 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:39:32 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_cleanmap(t_map *map)
+void	ft_cleanmap(char **map)
 {
 	int	i;
 
 	i = 0;
-	while (map->map[i])
+	if (!map)
+		return ;
+	while (map[i])
 	{
-		free(map->map[i]);
+		free(map[i]);
 		i++;
 	}
-	free(map->map);
+	free(map);
 }
 
 int	elem_count(t_map *map)
@@ -67,7 +69,7 @@ int	elements_check(t_map *map)
 				&& c != 'C' && c != 'E')
 			{
 				ft_putstr_fd("wrong element detected!", 2);
-				ft_cleanmap(map);
+				ft_cleanmap(map->map);
 				return (0);
 			}
 			i++;

@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 22:07:57 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/15 10:04:49 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:28:07 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ int	flood_map(t_map *map)
 	if (!check_rem(tmp_map))
 	{
 		ft_putstr_fd("this map cant be beaten\n", 2);
-		ft_cleanmap(map);
+		ft_cleanmap(map->map);
 		return (0);
 	}
+	ft_cleanmap(tmp_map);
 	return (1);
 }

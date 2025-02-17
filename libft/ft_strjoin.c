@@ -6,52 +6,35 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 21:52:16 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/09 14:46:09 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:53:04 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strjoin2(char *s1, char *s2)
 {
-	int	i;
-
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src [i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	*ft_strjoin2(char *buff, char *tmp)
-{
+	size_t	s1len;
+	size_t	s2len;
 	char	*str;
-	size_t	buff_len;
-	size_t	tmp_len;
 
-	if (tmp == NULL)
+	if (s1)
+		s1len = ft_strlen(s1);
+	else
+		s1len = 0;
+	if (s2)
+		s2len = ft_strlen(s2);
+	else
+		s2len = 0;
+	str = malloc(s1len + s2len + 1);
+	if (!str)
 		return (NULL);
-	if (!buff)
-	{
-		buff = (char *)malloc(1);
-		if (!buff)
-			return (NULL);
-		buff[0] = '\0';
-	}
-	buff_len = ft_strlen(buff);
-	tmp_len = ft_strlen(tmp);
-	str = malloc(buff_len + tmp_len + 1);
-	if (str == NULL)
-	{
-		free(buff);
-		return (NULL);
-	}
-	ft_strcpy(str, buff);
-	ft_strcpy(str + buff_len, tmp);
+	if (s1)
+		ft_memcpy(str, s1, s1len);
+	if (s2)
+		ft_memcpy(str + s1len, s2, s2len);
+	str[s1len + s2len] = '\0';
 	return (str);
 }
 
