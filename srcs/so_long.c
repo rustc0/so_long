@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:17 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/17 13:53:55 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/18 21:27:17 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,10 @@ int	main(int ac, char *av[])
 	map = malloc(sizeof(t_map));
 	if (!map)
 		return (1);
-	if (ac == 2 && parse_map(map, av[1]) && check_map(map))
+	if (ac == 2 && load_map(map, av[1]))
 	{
-		if (!flood_map(map))
-			return (1);
-		printf("window :0\n");
+		
+		printf("window :3\n");
 		// mlx = mlx_init();
 		// win = mlx_new_window(mlx, 1200, 700, "basic win");
 		// mlx_key_hook(win, close_window, mlx);
@@ -42,6 +41,7 @@ int	main(int ac, char *av[])
 	// free (mlx);
 	// free (win);
 	ft_cleanmap (map->map);
-	free (map);
+	if (map)
+		free (map);
 	return (0);
 }

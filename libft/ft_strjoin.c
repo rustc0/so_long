@@ -6,14 +6,14 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 21:52:16 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/17 11:53:04 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/18 09:16:24 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-char	*ft_strjoin2(char *s1, char *s2)
+char	*ft_strjoinlib(char *s1, char *s2)
 {
 	size_t	s1len;
 	size_t	s2len;

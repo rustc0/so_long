@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:19:15 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/09 17:50:37 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/18 09:16:29 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_atoi(const char *str);
 // Additioonal functions : -----------------------------------------------------
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin2(char *buff, char *tmp);
+char	*ft_strjoinlib(char *s1, char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);

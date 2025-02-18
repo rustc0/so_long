@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 01:07:46 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/09 14:37:49 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/18 10:55:27 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strjoin(char *buff, char *tmp)
 	size_t	buff_len;
 	size_t	tmp_len;
 
-	if (tmp == NULL)
+	if (!tmp)
 		return (NULL);
 	if (!buff)
 	{

@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:45 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/17 11:46:28 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/18 21:26:45 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,28 @@ enum e_keys
 
 typedef struct s_map
 {
-	char	*name;
 	int		fd;
 	char	**map;
 	int		lines;
 	int		columns;
 }	t_map;
 
-int		open_map(t_map *map, char *filename);
-int		load_map(t_map *map);
-int		parse_map(t_map *map, char *filename);
-int		get_dims(t_map *map);
+typedef struct s_game
+{
+	void	*mlx;
+	void	*win;
+	t_map	*map;
+}	t_game;
+
+void	open_map(t_map *map, char *filename);
+int		load_map(t_map *map, char *filename);
+// int		parse_map(t_map *map, char *filename);
+void	get_dims(t_map *map);
 void	ft_cleanmap(char **map);
 int		elements_check(t_map *map);
 int		ismap_closed(t_map *map);
 int		check_map(t_map *map);
 int		flood_map(t_map *map);
+void	ft_error(char *error);
 
 #endif

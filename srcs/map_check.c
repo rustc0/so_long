@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 08:44:55 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/17 10:39:32 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:20:29 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,15 @@ int	ismap_closed(t_map *map)
 
 int	check_map(t_map *map)
 {
-	return (ismap_closed(map) && elements_check(map)
-		&& elem_count(map));
+	if (!ismap_closed(map))
+	{
+		ft_putstr_fd("maps isnt enclosed with walls!", 2);
+		return (0);
+	}
+	if (!elements_check(map) && !elem_count(map))
+	{
+		ft_putstr_fd("check ur map elements and try again!", 2);
+		return (0);
+	}
+	return (1);
 }

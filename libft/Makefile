@@ -6,7 +6,7 @@
 #    By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/25 20:48:48 by rahmoham          #+#    #+#              #
-#    Updated: 2024/11/13 18:25:35 by rahmoham         ###   ########.fr        #
+#    Updated: 2025/02/18 16:27:34 by rahmoham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,6 @@ BOBJS = $(BSRCS:.c=.o)
 
 NAME = libft.a
 
-.PHONY : all bonus clean fclean re
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -54,3 +52,5 @@ fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY : all bonus clean fclean re
