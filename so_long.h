@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:45 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/18 21:26:45 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/20 21:05:06 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,33 @@ typedef struct s_map
 	int		columns;
 }	t_map;
 
+typedef struct s_imgs
+{
+	void	*player;
+	void	*wall;
+	void	*collectible;
+	void	*exit;
+}	t_imgs;
+
 typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
 	t_map	*map;
+	t_imgs	*imgs;
 }	t_game;
 
-void	open_map(t_map *map, char *filename);
-int		load_map(t_map *map, char *filename);
-// int		parse_map(t_map *map, char *filename);
-void	get_dims(t_map *map);
+void	open_map(t_game *game, char *filename);
+void	load_map(t_game *game, char *filename);
+void	get_dims(t_game *game);
 void	ft_cleanmap(char **map);
 int		elements_check(t_map *map);
 int		ismap_closed(t_map *map);
 int		check_map(t_map *map);
 int		flood_map(t_map *map);
-void	ft_error(char *error);
+void	ft_error(char *error, t_game *game);
+void    ft_cleangame(t_game *game);
+void	init_window(t_game *game);
+
 
 #endif

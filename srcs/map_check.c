@@ -6,26 +6,11 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 08:44:55 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/18 15:20:29 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/20 11:11:35 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-void	ft_cleanmap(char **map)
-{
-	int	i;
-
-	i = 0;
-	if (!map)
-		return ;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
-}
 
 int	elem_count(t_map *map)
 {

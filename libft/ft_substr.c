@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 17:58:57 by rahmoham          #+#    #+#             */
-/*   Updated: 2024/10/28 16:31:25 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/18 22:22:31 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 // int main(void)
 // {
-// 	char s[] = "Hello, world!";
+// 	char s[] = "Hello , world!";
 // 	char *str;
 // 	size_t	size = 10;
 

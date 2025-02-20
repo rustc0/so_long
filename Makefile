@@ -1,7 +1,8 @@
 NAME = exec
 CC = cc -Wall -Werror -Wextra
 
-SRC = srcs/so_long.c srcs/map_parse.c srcs/map_check.c srcs/flood_fill.c
+SRC = srcs/so_long.c srcs/map_parse.c srcs/map_check.c srcs/flood_fill.c srcs/utils.c srcs/map_rndr.c
+OBJ = $(SRC:.c=.o)
 
 LIBFT = libft/libft.a
 LIBFT_SRCS =./libft/ft_atoi.c		./libft/ft_isprint.c	./libft/ft_strnstr.c 	./libft/ft_strncmp.c	./libft/ft_striteri.c	\
@@ -13,6 +14,7 @@ LIBFT_SRCS =./libft/ft_atoi.c		./libft/ft_isprint.c	./libft/ft_strnstr.c 	./libf
 			./libft/ft_isdigit.c	./libft/ft_memset.c		./libft/ft_strtrim.c 	./libft/ft_strmapi.c \
 
 GNL = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+GNLOBJ = $(GNL:.c=.o)
 
 INCLUDES = -I/usr/local/include -I./libft -I./get_next_line
 
@@ -21,7 +23,7 @@ LIBS = -lmlx -lX11 -lXext -lft
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(SRC)
+$(NAME): $(LIBFT) $(GNL) $(SRC)
 	$(CC) $(SRC) $(GNL) $(LIBFT) -L/usr/local/lib -L./libft $(LIBS) -o $(NAME)
 
 $(LIBFT): $(LIBFT_SRCS)
@@ -31,7 +33,7 @@ $(LIBFT): $(LIBFT_SRCS)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(GNLOBJ)
 	$(MAKE) -C libft clean
 
 fclean: clean

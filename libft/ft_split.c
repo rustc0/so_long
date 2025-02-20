@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:28:43 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/13 17:14:16 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/18 22:22:43 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	**ft_split(char const *s, char c)
 
 // int main()
 // {
-// 	char s[] = "   hello, ,this,is a test,n0   ,";
+// 	char s[] = "  hello, ,this,is a test,n0   ,";
 // 	char **ret = ft_split(s, ' ');
 
 // 	for (size_t i = 0; ret[i] != NULL; i++)
