@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:08:16 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/20 16:24:29 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/22 22:17:56 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	load_map(t_game *game, char *filename)
 	game->map = malloc(sizeof(t_map));
 	if (!game->map)
 		return ;
+	*game->map = (t_map){0, 0, 0, 0};
 	open_map(game, filename);
 	full_line = NULL;
 	line = get_next_line(game->map->fd);
@@ -74,6 +75,8 @@ void	load_map(t_game *game, char *filename)
 	free (full_line);
 	close (game->map->fd);
 	get_dims(game);
+	check_map(game);
+	flood_map(game);
 }
 
 // int	parse_map(t_map *map, char *filename)

@@ -6,35 +6,39 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 08:44:55 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/20 11:11:35 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/22 22:26:09 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	elem_count(t_map *map)
+int	elem_count(t_game *game)
 {
-	int (i), (j), (e), (c), (p);
-	i = 0;
-	e = 0;
-	c = 0;
+	int (i), (j), (p);
+	i = -1;
 	p = 0;
-	while (i < map->lines)
+	while (++i < game->map->lines)
 	{
-		j = 0;
-		while (j < map->columns)
+		j = -1;
+		while (++j < game->map->columns)
 		{
-			if (map->map[i][j] == 'E')
-				e++;
-			else if (map->map[i][j] == 'C')
-				c++;
-			else if (map->map[i][j] == 'P')
+			if (game->map->map[i][j] == 'E')
+			{
+				game->exit_x = j;
+				game->exit_y = i;
+				game->exit_count++;
+			}
+			else if (game->map->map[i][j] == 'C')
+				game->collectibles++;
+			else if (game->map->map[i][j] == 'P')
+			{
+				game->player_x = j;
+				game->player_y = i;
 				p++;
-			j++;
+			}
 		}
-		i++;
 	}
-	return (e == 1 && c >= 1 && p == 1);
+	return (game->exit_count == 1 && game->collectibles >= 1 && p == 1);
 }
 
 int	elements_check(t_map *map)
@@ -52,9 +56,7 @@ int	elements_check(t_map *map)
 			c = map->map[j][i];
 			if (c != '0' && c != '1' && c != 'P'
 				&& c != 'C' && c != 'E')
-			{
-				ft_putstr_fd("wrong element detected!", 2);
-				ft_cleanmap(map->map);
+			{				
 				return (0);
 			}
 			i++;
@@ -90,17 +92,10 @@ int	ismap_closed(t_map *map)
 	return (1);
 }
 
-int	check_map(t_map *map)
+void	check_map(t_game *game)
 {
-	if (!ismap_closed(map))
-	{
-		ft_putstr_fd("maps isnt enclosed with walls!", 2);
-		return (0);
-	}
-	if (!elements_check(map) && !elem_count(map))
-	{
-		ft_putstr_fd("check ur map elements and try again!", 2);
-		return (0);
-	}
-	return (1);
+	if (!ismap_closed(game->map))
+		ft_error("Error : map is not closed!\n", game);
+	if (!elements_check(game->map) || !elem_count(game))
+		ft_error("Error : elements are not valid!\n", game);
 }

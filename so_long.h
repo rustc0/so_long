@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:45 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/20 21:05:06 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/22 21:26:24 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <fcntl.h>
 # include "libft/libft.h"
 # include "get_next_line/get_next_line.h"
+
 
 enum e_keys
 {
@@ -38,12 +39,12 @@ enum e_keys
 typedef struct s_map
 {
 	int		fd;
-	char	**map;
+	char	**map; // done
 	int		lines;
 	int		columns;
 }	t_map;
 
-typedef struct s_imgs
+typedef struct s_imgs // done
 {
 	void	*player;
 	void	*wall;
@@ -57,19 +58,28 @@ typedef struct s_game
 	void	*win;
 	t_map	*map;
 	t_imgs	*imgs;
+	int		player_x;
+	int		player_y;
+	int		collectibles;
+	int		c_count;
+	int		moves;
+	int		exit_x;
+	int		exit_y;
+	int		exit_count;
 }	t_game;
 
-void	open_map(t_game *game, char *filename);
 void	load_map(t_game *game, char *filename);
-void	get_dims(t_game *game);
-void	ft_cleanmap(char **map);
-int		elements_check(t_map *map);
-int		ismap_closed(t_map *map);
-int		check_map(t_map *map);
-int		flood_map(t_map *map);
+void	cleanmap(char **map);
+void	check_map(t_game *game);
+void	flood_map(t_game *game);
 void	ft_error(char *error, t_game *game);
-void    ft_cleangame(t_game *game);
+// void    ft_cleangame(t_game *game);
 void	init_window(t_game *game);
-
+void	load_imgs(t_game *game);
+void	render_map(t_game *game);
+void	exit_game(t_game *game);
+void	put_image(t_game *game, void *img, int x, int y);
+int		key_interpreter(int key, t_game *game);
+void    ft_cleangame(t_game *game);
 
 #endif

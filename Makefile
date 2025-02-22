@@ -1,7 +1,7 @@
 NAME = exec
 CC = cc -Wall -Werror -Wextra
 
-SRC = srcs/so_long.c srcs/map_parse.c srcs/map_check.c srcs/flood_fill.c srcs/utils.c srcs/map_rndr.c
+SRC = srcs/so_long.c srcs/map_parse.c srcs/map_check.c srcs/flood_fill.c srcs/utils.c srcs/map_rndr.c srcs/move_player.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT = libft/libft.a
@@ -23,7 +23,7 @@ LIBS = -lmlx -lX11 -lXext -lft
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(GNL) $(SRC)
+$(NAME): $(LIBFT) $(GNL) $(SRC) so_long.h
 	$(CC) $(SRC) $(GNL) $(LIBFT) -L/usr/local/lib -L./libft $(LIBS) -o $(NAME)
 
 $(LIBFT): $(LIBFT_SRCS)

@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 22:07:57 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/18 15:21:10 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/22 22:20:14 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,29 +63,27 @@ int	check_rem(char **map)
 	return (1);
 }
 
-int	flood_map(t_map *map)
+void	flood_map(t_game *game)
 {
 	char	**tmp_map;
-
 	int (x), (y);
+
 	y = 0;
-	while (y < map->lines)
+	while (y < game->map->lines)
 	{
 		x = 0;
-		while (x < map->columns && !(map->map[y][x] == 'P'))
+		while (x < game->map->columns && !(game->map->map[y][x] == 'P'))
 			x++;
-		if (map->map[y][x] == 'P')
+		if (game->map->map[y][x] == 'P')
 			break ;
 		y++;
 	}
-	tmp_map = create_tmp(map);
-	flood_fill(map, y, x, tmp_map);
+	tmp_map = create_tmp(game->map);
+	flood_fill(game->map, y, x, tmp_map);
 	if (!check_rem(tmp_map))
 	{
-		ft_putstr_fd("this map cant be beaten\n", 2);
-		ft_cleanmap(tmp_map);
-		return (0);
+		ft_error("Error : map is not valid!\n", game);
+		cleanmap(tmp_map);
 	}
-	ft_cleanmap(tmp_map);
-	return (1);
+	cleanmap(tmp_map);
 }
