@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:17 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/23 10:54:57 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/23 14:17:10 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char *av[])
 		return (1);
 	*game = (t_game){0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	if (ac != 2)
-		ft_error("Error : invalid format\n", game);
+		ft_error("Error :\ninvalid format\n", game);
 	run_game(game, av[1]);
 	mlx_loop(game->mlx);
 	ft_cleangame(game);

@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:13:47 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/22 22:16:29 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/23 14:16:46 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	load_imgs(t_game *game)
 			"textures/exit.xpm", &x, &x);
 	if (!game->imgs->player || !game->imgs->wall
 		|| !game->imgs->collectible || !game->imgs->exit)
-		ft_error("one or more textures are missing!\n", game);
+		ft_error("Error :\none or more textures are missing!\n", game);
 }
 
 void	put_image(t_game *game, void *img, int x, int y)

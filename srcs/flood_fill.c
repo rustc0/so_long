@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 22:07:57 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/22 22:20:14 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/23 14:15:49 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	flood_map(t_game *game)
 	flood_fill(game->map, y, x, tmp_map);
 	if (!check_rem(tmp_map))
 	{
-		ft_error("Error : map is not valid!\n", game);
+		ft_error("Error :\nmap is not valid!\n", game);
 		cleanmap(tmp_map);
 	}
 	cleanmap(tmp_map);

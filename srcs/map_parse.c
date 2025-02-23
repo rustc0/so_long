@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:08:16 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/22 22:17:56 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/23 14:16:32 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	open_map(t_game *game, char *filename)
 		|| *(ft_strrchr(filename, '/') + 1) == '.'
 		|| ft_strncmp(&filename[(ft_strlen(filename) - 4)], ".ber", (size_t)4))
 	{
-		ft_error("filename is not valid!\n", game);
+		ft_error("Error :\nfilename is not valid!\n", game);
 	}
 	game->map->fd = open(filename, O_RDONLY);
 	if (game->map->fd < 0)
-		ft_error("cant open the map file!\n", game);
+		ft_error("Error :\ncant open the map file!\n", game);
 }
 
 void	get_dims(t_game *game)
@@ -47,19 +47,19 @@ void	get_dims(t_game *game)
 	}
 	game->map->lines = i;
 	if (!rect)
-		ft_error("map is not in a playable shape!\n", game);
+		ft_error("Error :\nmap is not in a playable shape!\n", game);
 }
 
 void	load_map(t_game *game, char *filename)
 {
-	char	(*full_line);
-	char	(*line);
+	char	*full_line;
+	char	*line;
 
 	open_map(game, filename);
 	full_line = NULL;
 	line = get_next_line(game->map->fd);
 	if (!line)
-		ft_error("map is empty!\n", game);
+		ft_error("Error :\nmap is empty!\n", game);
 	while (line)
 	{
 		full_line = ft_strjoin(full_line, line);

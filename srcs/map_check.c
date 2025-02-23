@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 08:44:55 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/22 22:26:09 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/23 14:15:42 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	ismap_closed(t_map *map)
 void	check_map(t_game *game)
 {
 	if (!ismap_closed(game->map))
-		ft_error("Error : map is not closed!\n", game);
+		ft_error("Error :\nmap is not closed!\n", game);
 	if (!elements_check(game->map) || !elem_count(game))
-		ft_error("Error : elements are not valid!\n", game);
+		ft_error("Error :\nelements are not valid!\n", game);
 }
