@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:32:30 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/22 21:28:15 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/23 10:57:57 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	move_right(t_game *game)
 	game->map->map[game->player_y][game->player_x] = 'P';
 	mlx_clear_window(game->mlx, game->win);
 	render_map(game);
+	ft_putstr_fd("Moves: ", 1);
+	ft_putnbr_fd(game->moves, 1);
+	ft_putstr_fd("\n", 1);
 }
 
 void	move_left(t_game *game)
@@ -56,6 +59,9 @@ void	move_left(t_game *game)
 	game->map->map[game->player_y][game->player_x] = 'P';
 	mlx_clear_window(game->mlx, game->win);
 	render_map(game);
+	ft_putstr_fd("Moves: ", 1);
+	ft_putnbr_fd(game->moves, 1);
+	ft_putstr_fd("\n", 1);
 }
 
 void	move_down(t_game *game)
@@ -79,6 +85,9 @@ void	move_down(t_game *game)
 	game->map->map[game->player_y][game->player_x] = 'P';
 	mlx_clear_window(game->mlx, game->win);
 	render_map(game);
+	ft_putstr_fd("Moves: ", 1);
+	ft_putnbr_fd(game->moves, 1);
+	ft_putstr_fd("\n", 1);
 }
 
 void	move_up(t_game *game)
@@ -102,6 +111,9 @@ void	move_up(t_game *game)
 	game->map->map[game->player_y][game->player_x] = 'P';
 	mlx_clear_window(game->mlx, game->win);
 	render_map(game);
+	ft_putstr_fd("Moves: ", 1);
+	ft_putnbr_fd(game->moves, 1);
+	ft_putstr_fd("\n", 1);
 }
 
 int	key_interpreter(int key, t_game *game)

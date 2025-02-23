@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:10:26 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/22 22:04:35 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/23 10:55:29 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	cleanmap(char **map)
 	int	i;
 
 	i = 0;
-	printf("nigaa\n");
 	if (!map)
 		return ;
 	while (map[i])
@@ -63,9 +62,7 @@ void	ft_cleangame(t_game *game)
 		cleanmap(game->map->map);
 		free(game->map);
 	}
-	printf("!!!!\n");
 	clean_imgs(game);
-	printf("!!!!\n");
 	if (game->mlx)
 		clean_mlx(game);
 	if (game)
@@ -74,7 +71,7 @@ void	ft_cleangame(t_game *game)
 
 int	exit_game(t_game *game)
 {
-	printf("!!!?\n");
 	ft_cleangame(game);
 	exit(0);
+	return (0);
 }

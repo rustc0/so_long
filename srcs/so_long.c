@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:17 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/22 22:19:54 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/23 10:54:57 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	run_game(t_game *game, char *filename)
 	load_imgs(game);
 	render_map(game);
 	mlx_key_hook(game->win, key_interpreter, game);
-	mlx_hook(game->win, 17, 0, exit_game, game->mlx);
+	mlx_hook(game->win, 17, 0, exit_game, game);
 }
 
 int	main(int ac, char *av[])
