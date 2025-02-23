@@ -56,7 +56,7 @@ int	elements_check(t_map *map)
 			c = map->map[j][i];
 			if (c != '0' && c != '1' && c != 'P'
 				&& c != 'C' && c != 'E')
-			{				
+			{
 				return (0);
 			}
 			i++;

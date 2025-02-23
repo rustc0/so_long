@@ -52,12 +52,9 @@ void	get_dims(t_game *game)
 
 void	load_map(t_game *game, char *filename)
 {
-	char	(*full_line), (*line);
+	char	(*full_line);
+	char	(*line);
 
-	game->map = malloc(sizeof(t_map));
-	if (!game->map)
-		return ;
-	*game->map = (t_map){0, 0, 0, 0};
 	open_map(game, filename);
 	full_line = NULL;
 	line = get_next_line(game->map->fd);
@@ -79,20 +76,9 @@ void	load_map(t_game *game, char *filename)
 	flood_map(game);
 }
 
-// int	parse_map(t_map *map, char *filename)
-// {
-// 	if (!open_map(map, filename))
-// 		return (0);
-// 	if (!load_map(map))
-// 	{
-// 		ft_putstr_fd("cant read the map file!\n", 2);
-// 		return (0);
-// 	}
-// 	if (!get_dims(map))
-// 	{
-// 		ft_putstr_fd("map is not rectangular!\n", 2);
-// 		return (0);
-// 	}
-// 	return (1);
-// }
-
+void	ft_error(char *error, t_game *game)
+{
+	ft_putstr_fd(error, 2);
+	ft_cleangame(game);
+	exit (1);
+}

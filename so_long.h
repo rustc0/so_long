@@ -22,7 +22,6 @@
 # include "libft/libft.h"
 # include "get_next_line/get_next_line.h"
 
-
 enum e_keys
 {
 	ESC = 65307,
@@ -73,13 +72,13 @@ void	cleanmap(char **map);
 void	check_map(t_game *game);
 void	flood_map(t_game *game);
 void	ft_error(char *error, t_game *game);
-// void    ft_cleangame(t_game *game);
 void	init_window(t_game *game);
 void	load_imgs(t_game *game);
 void	render_map(t_game *game);
-void	exit_game(t_game *game);
+int		exit_game(t_game *game);
 void	put_image(t_game *game, void *img, int x, int y);
 int		key_interpreter(int key, t_game *game);
-void    ft_cleangame(t_game *game);
+void	ft_cleangame(t_game *game);
+void	clean_imgs(t_game *game);
 
 #endif

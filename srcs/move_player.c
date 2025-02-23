@@ -12,13 +12,13 @@
 
 #include "../so_long.h"
 
-void    move_right(t_game *game)
+void	move_right(t_game *game)
 {
 	char	target;
 
 	target = game->map->map[game->player_y][game->player_x + 1];
 	if (target == '1')
-		return;
+		return ;
 	if (target == 'C')
 		game->c_count++;
 	if (target == 'E' && game->collectibles == game->c_count)
@@ -35,13 +35,13 @@ void    move_right(t_game *game)
 	render_map(game);
 }
 
-void    move_left(t_game *game)
+void	move_left(t_game *game)
 {
 	char	target;
 
 	target = game->map->map[game->player_y][game->player_x - 1];
 	if (target == '1')
-		return;
+		return ;
 	if (target == 'C')
 		game->c_count++;
 	if (target == 'E' && game->collectibles == game->c_count)
@@ -58,13 +58,13 @@ void    move_left(t_game *game)
 	render_map(game);
 }
 
-void    move_down(t_game *game)
+void	move_down(t_game *game)
 {
 	char	target;
 
 	target = game->map->map[game->player_y + 1][game->player_x];
 	if (target == '1')
-		return;
+		return ;
 	if (target == 'C')
 		game->c_count++;
 	if (target == 'E' && game->collectibles == game->c_count)
@@ -80,13 +80,14 @@ void    move_down(t_game *game)
 	mlx_clear_window(game->mlx, game->win);
 	render_map(game);
 }
+
 void	move_up(t_game *game)
 {
 	char	target;
 
 	target = game->map->map[game->player_y - 1][game->player_x];
 	if (target == '1')
-		return;
+		return ;
 	if (target == 'C')
 		game->c_count++;
 	if (target == 'E' && game->collectibles == game->c_count)
@@ -106,7 +107,7 @@ void	move_up(t_game *game)
 int	key_interpreter(int key, t_game *game)
 {
 	if (key == ESC)
-		exit(0);
+		exit_game(game);
 	if (key == D_KEY || key == RIGHT)
 		move_right(game);
 	if (key == A_KEY || key == LEFT)
@@ -115,5 +116,5 @@ int	key_interpreter(int key, t_game *game)
 		move_down(game);
 	if (key == W_KEY || key == UP)
 		move_up(game);
-	return 0;
+	return (0);
 }

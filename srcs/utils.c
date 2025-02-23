@@ -33,6 +33,7 @@ void	cleanmap(char **map)
 	int	i;
 
 	i = 0;
+	printf("nigaa\n");
 	if (!map)
 		return ;
 	while (map[i])
@@ -44,6 +45,7 @@ void	cleanmap(char **map)
 	free(map);
 	map = NULL;
 }
+
 void	clean_mlx(t_game *game)
 {
 	if (game->mlx)
@@ -54,29 +56,25 @@ void	clean_mlx(t_game *game)
 		free(game->mlx);
 }
 
-void	ft_error(char *error, t_game *game)
-{
-	ft_putstr_fd(error, 2);
-	ft_cleangame(game);
-	exit (1);
-}
-
-void    ft_cleangame(t_game *game)
+void	ft_cleangame(t_game *game)
 {
 	if (game->map)
 	{
 		cleanmap(game->map->map);
 		free(game->map);
 	}
+	printf("!!!!\n");
 	clean_imgs(game);
+	printf("!!!!\n");
 	if (game->mlx)
 		clean_mlx(game);
 	if (game)
 		free(game);
 }
 
-void	exit_game(t_game *game)
+int	exit_game(t_game *game)
 {
+	printf("!!!?\n");
 	ft_cleangame(game);
 	exit(0);
 }

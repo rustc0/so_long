@@ -66,8 +66,8 @@ int	check_rem(char **map)
 void	flood_map(t_game *game)
 {
 	char	**tmp_map;
-	int (x), (y);
 
+	int (x), (y);
 	y = 0;
 	while (y < game->map->lines)
 	{

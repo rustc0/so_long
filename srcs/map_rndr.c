@@ -26,23 +26,24 @@ void	init_window(t_game *game)
 		ft_error("mlx window creation failed", game);
 	}
 }
+
 void	load_imgs(t_game *game)
 {
-	int x;
+	int	x;
 
 	x = 64;
 	game->imgs = malloc(sizeof(t_imgs));
 	if (!game->imgs)
 		ft_error("imgs allocation failed", game);
-	*game->imgs = (t_imgs){0, 0, 0, 0};	
+	*game->imgs = (t_imgs){0, 0, 0, 0};
 	game->imgs->player = mlx_xpm_file_to_image(game->mlx,
-		 "textures/player.xpm", &x, &x);
+			"textures/player.xpm", &x, &x);
 	game->imgs->wall = mlx_xpm_file_to_image(game->mlx,
-		 "textures/wall.xpm", &x, &x);
+			"textures/wall.xpm", &x, &x);
 	game->imgs->collectible = mlx_xpm_file_to_image(game->mlx,
-		 "textures/collectible.xpm", &x, &x);
+			"textures/collectible.xpm", &x, &x);
 	game->imgs->exit = mlx_xpm_file_to_image(game->mlx,
-		 "textures/exit.xpm", &x, &x);
+			"textures/exit.xpm", &x, &x);
 	if (!game->imgs->player || !game->imgs->wall
 		|| !game->imgs->collectible || !game->imgs->exit)
 		ft_error("one or more textures are missing!\n", game);
@@ -55,8 +56,8 @@ void	put_image(t_game *game, void *img, int x, int y)
 
 void	render_map(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (game->map->map[x])
@@ -70,7 +71,8 @@ void	render_map(t_game *game)
 				put_image(game, game->imgs->player, y, x);
 			else if (game->map->map[x][y] == 'C')
 				put_image(game, game->imgs->collectible, y, x);
-			else if (game->map->map[x][y] == 'E' && game->c_count == game->collectibles)
+			else if (game->map->map[x][y] == 'E'
+				&& game->c_count == game->collectibles)
 				put_image(game, game->imgs->exit, y, x);
 			y++;
 		}

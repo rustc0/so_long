@@ -14,21 +14,26 @@
 
 void	run_game(t_game *game, char *filename)
 {
+	game->map = malloc(sizeof(t_map));
+	if (!game->map)
+		return ;
+	*game->map = (t_map){0, 0, 0, 0};
 	load_map(game, filename);
 	init_window(game);
 	load_imgs(game);
 	render_map(game);
 	mlx_key_hook(game->win, key_interpreter, game);
+	mlx_hook(game->win, 17, 0, exit_game, game->mlx);
 }
 
 int	main(int ac, char *av[])
 {
 	t_game	*game;
+
 	game = malloc(sizeof(t_game));
 	if (!game)
 		return (1);
 	*game = (t_game){0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	// game->moves = 0;
 	if (ac != 2)
 		ft_error("Error : invalid format\n", game);
 	run_game(game, av[1]);
