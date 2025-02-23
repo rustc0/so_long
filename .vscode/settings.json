@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "get_next_line.h": "c",
-        "libft.h": "c",
-        "map": "c",
-        "format": "c",
-        "__tree": "c"
-    }
-}
