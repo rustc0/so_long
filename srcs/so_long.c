@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:17 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/23 14:17:10 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:53:29 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	run_game(t_game *game, char *filename)
 	game->map = malloc(sizeof(t_map));
 	if (!game->map)
 		return ;
-	*game->map = (t_map){0, 0, 0, 0};
+	*game->map = (t_map){0, 0, 0, 0, 0, 0};
 	load_map(game, filename);
 	init_window(game);
 	load_imgs(game);

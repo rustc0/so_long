@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:13:47 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/23 14:16:46 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:58:12 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,18 @@ void	init_window(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		ft_error("mlx server conexion failed", game);
+		ft_error("Error :\nmlx server conexion failed", game);
+	mlx_get_screen_size(game->mlx, &game->map->screen_w, &game->map->screen_l);
+	if (game->map->columns * 64 > game->map->screen_w
+		|| game->map->lines * 64 > game->map->screen_l)
+	{
+		ft_error("Error :\nMap is too big for the screen!\n", game);
+	}
 	game->win = mlx_new_window(game->mlx, game->map->columns * 64,
 			game->map->lines * 64, "so_long");
 	if (!game->win)
 	{
-		mlx_destroy_display(game->mlx);
-		free (game->mlx);
-		ft_error("mlx window creation failed", game);
+		ft_error("Error :\nmlx window creation failed", game);
 	}
 }
 

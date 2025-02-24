@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 20:09:45 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/23 14:18:43 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:53:22 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,14 @@ enum e_keys
 typedef struct s_map
 {
 	int		fd;
-	char	**map; // done
+	char	**map;
 	int		lines;
 	int		columns;
+	int		screen_w;
+	int		screen_l;
 }	t_map;
 
-typedef struct s_imgs // done
+typedef struct s_imgs
 {
 	void	*player;
 	void	*wall;
