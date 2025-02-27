@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:10:26 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/24 13:28:38 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:33:57 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	cleanmap(char **map)
 
 void	clean_mlx(t_game *game)
 {
-
 	if (game->mlx && game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
@@ -73,6 +72,5 @@ void	ft_cleangame(t_game *game)
 int	exit_game(t_game *game)
 {
 	ft_cleangame(game);
-	exit(0);
-	return (0);
+	exit (0);
 }

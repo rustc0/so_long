@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:08:16 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/23 14:16:32 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:31:25 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	open_map(t_game *game, char *filename)
 {
 	if (ft_strlen(filename) < 5
-		|| *(ft_strrchr(filename, '/') + 1) == '.'
+		|| (ft_strrchr(filename, '/') && *(ft_strrchr(filename, '/')) == '.')
 		|| ft_strncmp(&filename[(ft_strlen(filename) - 4)], ".ber", (size_t)4))
 	{
 		ft_error("Error :\nfilename is not valid!\n", game);

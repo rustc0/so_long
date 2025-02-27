@@ -6,7 +6,7 @@
 /*   By: rahmoham <rahmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 08:44:55 by rahmoham          #+#    #+#             */
-/*   Updated: 2025/02/23 14:15:42 by rahmoham         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:22:44 by rahmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	ismap_closed(t_map *map)
 	j = 0;
 	while (map->map[map->lines - 1][j])
 	{
-		if (map->map[0][j++] != '1')
+		if (map->map[map->lines - 1][j++] != '1')
 			return (0);
 	}
 	j = 0;

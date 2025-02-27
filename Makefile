@@ -1,7 +1,7 @@
 NAME = so_long
 CC = cc -Wall -Werror -Wextra
 
-SRC = srcs/so_long.c srcs/map_parse.c srcs/map_check.c srcs/flood_fill.c srcs/utils.c srcs/map_rndr.c srcs/move_player.c
+SRC = so_long.c map_parse.c map_check.c flood_fill.c utils.c map_rndr.c move_player.c
 
 LIBFT = libft/libft.a
 LIBFT_SRCS =./libft/ft_atoi.c		./libft/ft_isprint.c	./libft/ft_strnstr.c 	./libft/ft_strncmp.c	./libft/ft_striteri.c	\
